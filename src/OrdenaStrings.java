@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -38,7 +39,12 @@ public class OrdenaStrings {
 		
 		// O MÉTODO INICIADO NA LINHA 28 É EQUIVALENTE A ESSE:
 		
-		nomes.sort((s1, s2) -> Integer.compare(s1.length(), s2.length()));
+		//nomes.sort((s1, s2) -> Integer.compare(s1.length(), s2.length()));
+		
+		// O método acima é o mesmo que esse aqui:
+		nomes.sort(Comparator.comparing(s -> s.length()));
+		
+		//nomes.sort(Comparator.comparing(String::length)); -> method reference
 
 		// O MÉTODO INICIADO NA LINHA 18 É EQUIVALENTE A ESSE:
 		
