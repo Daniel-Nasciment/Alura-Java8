@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class TestaCursos {
 
@@ -20,17 +21,16 @@ public class TestaCursos {
 
 		cursos.sort(Comparator.comparing(Curso::getAlunos)); // method reference
 
-		cursos.forEach(c -> System.out.println(c)); // lambda expression
+		// cursos.forEach(c -> System.out.println(c)); // lambda expression
 		
 		// STREAM NÃO É UMA COLECTION
 		// FAZER ALTERAÇÕES EM UM STREAM NÃO ALTERA A COLEÇÃO ORIGINAL
 		
-		int sum = cursos.stream()
+		cursos = cursos.stream()
 		.filter(c -> c.getAlunos() > 20)
-		.mapToInt(Curso::getAlunos)
-		.sum();
+		.collect(Collectors.toList());
 		
-		System.out.println(sum);
+		System.out.println(cursos);
 		
 		cursos.forEach(c -> System.out.println(c));
 
