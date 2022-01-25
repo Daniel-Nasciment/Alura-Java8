@@ -26,13 +26,23 @@ public class TestaCursos {
 		// STREAM NÃO É UMA COLECTION
 		// FAZER ALTERAÇÕES EM UM STREAM NÃO ALTERA A COLEÇÃO ORIGINAL
 		
-		cursos = cursos.stream()
+//		cursos = cursos.stream()
+//		.filter(c -> c.getAlunos() > 20)
+//		.collect(Collectors.toList());
+		
+		cursos.stream()
 		.filter(c -> c.getAlunos() > 20)
-		.collect(Collectors.toList());
+		.collect(Collectors.toMap(
+				c -> c.getNome(),
+				c -> c.getAlunos()
+				))
+		.forEach((nome, alunos) -> System.out.println("Nome curso: " + nome + " tem " + alunos + " alunos."));
 		
-		System.out.println(cursos);
 		
-		cursos.forEach(c -> System.out.println(c));
+		
+		//System.out.println(cursos);
+		
+		//cursos.forEach(c -> System.out.println(c));
 
 	}
 
