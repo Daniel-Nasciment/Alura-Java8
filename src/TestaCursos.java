@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -30,19 +31,29 @@ public class TestaCursos {
 //		.filter(c -> c.getAlunos() > 20)
 //		.collect(Collectors.toList());
 		
-		cursos.stream()
-		.filter(c -> c.getAlunos() > 20)
-		.collect(Collectors.toMap(
-				c -> c.getNome(),
-				c -> c.getAlunos()
-				))
-		.forEach((nome, alunos) -> System.out.println("Nome curso: " + nome + " tem " + alunos + " alunos."));
-		
+//		cursos.stream()
+//		.filter(c -> c.getAlunos() > 20)
+//		.collect(Collectors.toMap(
+//				c -> c.getNome(),
+//				c -> c.getAlunos()
+//				))
+//		.forEach((nome, alunos) -> System.out.println("Nome curso: " + nome + " tem " + alunos + " alunos."));
+//		
 		
 		
 		//System.out.println(cursos);
 		
 		//cursos.forEach(c -> System.out.println(c));
+		
+		BigDecimal valor = BigDecimal.valueOf(300.0).multiply(new BigDecimal("0.1"));
+		
+		// 	SE valor > COMPARETO = 1
+		//  SE valor < COMPARETO = -1
+		// 	SE valor = COMPARETO = 0
+		if (valor.compareTo(new BigDecimal("30")) > 0) {
+			System.out.println("É maior");
+		}
+		
 
 	}
 
